@@ -1,4 +1,4 @@
-// Route 1: GET /author/:type
+// Route 1: GET /home
 const sample = async function(req, res) {
 	res.send("Hello World!")
 }

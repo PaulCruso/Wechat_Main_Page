@@ -11,6 +11,7 @@ app.use(cors({
 // provide their handlers that we implemented in routes.js
 app.get('/home', routes.sample);
 
+// running on localhost port 8080
 app.listen(8080, () => {
   console.log(`Server running at http://localhost:8080/`)
 });
