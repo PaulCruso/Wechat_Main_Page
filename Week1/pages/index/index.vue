@@ -15,18 +15,6 @@
         </button>
       </view>
     </view>
-    <view>
-      <view class='user-info'>
-        <image :src="userInfo.avatarUrl" class='avatar'></image>
-        <text>{{ userInfo.nickName }}</text>
-      </view>
-      <view class='token-info'>
-        <text>Token: {{ token }}</text>
-      </view>
-      <view class='code-info'>
-        <text>Code: {{ code }}</text>
-      </view>
-    </view>
   </view>
 </template>
 
@@ -83,24 +71,27 @@ export default {
             header: {
               'content-type': 'application/json'
             },
-            success: (res) => {
-              uni.hideLoading();
-              if (res.data.success) {
-                uni.setStorageSync('token', res.data.token);
-                that.userInfo = res.data.userInfo; // 存储用户信息
-                that.token = res.data.token; // 存储token
-                that.isloading = false; // 更新isloading状态
-                uni.showToast({
-                  title: '登录成功',
-                  icon: 'success'
-                });
-              } else {
-                uni.showToast({
-                  title: '登录失败',
-                  icon: 'none'
-                });
-              }
-            }
+			success: (res) => {
+			  uni.hideLoading();
+			  if (res.data.success) {
+				uni.setStorageSync('token', res.data.token);
+				that.userInfo = res.data.userInfo; // 存储用户信息
+				that.token = res.data.token; // 存储token
+				that.isloading = false; // 更新isloading状态
+				uni.showToast({
+				  title: '登录成功',
+				  icon: 'success'
+				});
+				uni.navigateTo({
+				  url: '../Home/home'
+				});
+			  } else {
+				uni.showToast({
+				  title: '登录失败',
+				  icon: 'none'
+				});
+			  }
+			}
           });
         }
       });

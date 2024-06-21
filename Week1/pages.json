@@ -3,7 +3,13 @@
 		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "uni-app"
+				"navigationBarTitleText": "登陆页面"
+			}
+		},
+		{
+			"path": "pages/Home/home",
+			"style": {
+				"navigationBarTitleText": "西游教育"
 			}
 		}
 	],
